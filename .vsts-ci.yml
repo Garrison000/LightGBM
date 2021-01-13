@@ -20,7 +20,7 @@ jobs:
 - job: Windows
 ###########################################
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'vs2017-win2016'
   strategy:
     matrix:
       bdist:
@@ -51,7 +51,7 @@ jobs:
   - Windows
   condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
   pool:
-    vmImage: 'vs2017-win2016'
+    vmImage: 'ubuntu-latest'
   steps:
   # Download all agent packages from all previous phases
   - task: DownloadBuildArtifacts@0
